@@ -1,11 +1,29 @@
 //PRE-ALPHA
 
+//librerias
 #include <iostream>
+#include <stdlib.h>
+
 
 using namespace std;
 
+//variables
 char partido_pol, porcentaje,boleta_nofocial,boleta_color,boleta_boleta_dif;
+char thesw[256];
 int sw;
+
+//funciones
+
+
+int stringAint(char j[]){
+	//pasa el string a un int 
+	//recibe el array j[] 
+	int i;
+	//lo #parsea a un entero con la funcion atoi de la libreria stdlib.h
+	i = atoi(j);
+	
+	return i;
+}
 
 bool serCandidato(char p, char q){
 	//recibe los dos char (partido_pol y porcentaje
@@ -23,7 +41,7 @@ bool serCandidato(char p, char q){
 }
 
 bool votoValido(char p, char q, char r){
-	//recibe los char (boleta_X 
+	//recibe los char  
 	//si alguno de ellos es verdadero (y) devuelve false y el voto no es valido
 	//si todos son falsos (n) devuelve true y es voto es valido
 	if(p=='y'||q=='y'||r=='y'){
@@ -43,11 +61,6 @@ bool votoValido(char p, char q, char r){
 }
 
 
-
-
-
-
-
 int main(int argc, char** argv) {
 	//info para usuario por consola
     cout << "--------------------"<<endl;
@@ -55,7 +68,7 @@ int main(int argc, char** argv) {
 	cout << "--------------------"<<endl;
 
 	while(true){
-		//info para usuario por consola x2
+		//"menu" para elegir ejercicio (solo de prueba no para tp final)
 		cout << " Ingrese el numero de ejercicio"<<endl;
 		cout << "-Ejercicio 1"<<endl;
 		cout << "-Ejercicio 2"<<endl;
@@ -63,7 +76,8 @@ int main(int argc, char** argv) {
 		cout << "-Ejercicio 4"<<endl;
 		cout << "-Ingrese 5 para salir"<<endl;
 		//ingresa el num del ejercicio que lo manda al switch de ese ejercicio
-	    cin >> sw;
+	    cin >> thesw;
+	    sw = stringAint(thesw);
 		switch(sw){
 			case 1:
 		    cout << "--------------------"<<endl;
@@ -96,7 +110,10 @@ int main(int argc, char** argv) {
 			}
 		     cout << "--------------------"<<endl;
 			break; 
-		
+			
+			case 2:
+			
+			break; 
 			//case 5 sale del programa
 			case 5: 
 		    
@@ -107,7 +124,7 @@ int main(int argc, char** argv) {
 			//en caso de que el usuario no ingrese un numero correcto
 			//le vuelve a preguntar
 			default:
-				
+				cout<<"Por favor ingrese un numero valido"<<endl;
 			break;
 		}
 	}
